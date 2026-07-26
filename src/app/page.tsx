@@ -67,7 +67,7 @@ export default function HomePage() {
             className="w-full h-full object-cover scale-105"
           >
             <source
-              src="https://assets.mixkit.co/videos/preview/mixkit-hand-embroidering-a-piece-of-white-cloth-42866-large.mp4"
+              src="https://res.cloudinary.com/vz8eipnq/video/upload/main_hero_video_o2tdga.mp4"
               type="video/mp4"
             />
           </video>

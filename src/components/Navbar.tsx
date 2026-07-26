@@ -96,16 +96,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Shopping Bag Button */}
-            <button
-              aria-label="Shopping Bag"
-              className="material-symbols-outlined text-primary hover:opacity-75 transition-all text-2xl relative"
-            >
-              shopping_bag
-              <span className="absolute -top-1 -right-1.5 w-4 h-4 bg-primary text-white text-[10px] rounded-full flex items-center justify-center font-bold">
-                0
-              </span>
-            </button>
+
 
             {/* Mobile Menu Button */}
             <button
