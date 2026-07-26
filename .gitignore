@@ -1,7 +1,12 @@
 # dependencies
 /node_modules
+/.pnp
+.pnp.js
 /.pnpm
 /.yarn
+
+# testing
+/coverage
 
 # next.js build output
 /.next/

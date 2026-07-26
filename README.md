@@ -215,6 +215,6 @@ When a user selects `ID` or `EN`, their preference is saved in `localStorage.set
 
 ## 📄 License & Attribution
 
-- **Project**: Batik Zahro — Borneo Artisan Heritage
+- **Project**: Batik Zahro — Borneo Artisan Heritage Website Application
 - **Design System**: Artisanal Earth & Gold (Stitch TEXT_TO_UI_PRO)
 - **Built for**: High-fashion luxury Indonesian batik presentation and global ecommerce concierge.
