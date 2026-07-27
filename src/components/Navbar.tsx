@@ -29,6 +29,7 @@ export default function Navbar() {
     { name: t.nav.about, href: '/about' },
     { name: t.nav.story, href: '/our-story' },
     { name: t.nav.collection, href: '/collection' },
+    { name: t.nav.gallery, href: '/gallery' },
     { name: t.nav.contact, href: '/contact' },
   ];
 
@@ -101,10 +102,12 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden material-symbols-outlined text-primary text-2xl focus:outline-none"
+              className="lg:hidden flex items-center justify-center text-primary focus:outline-none"
               aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? 'close' : 'menu'}
+              <span className="material-symbols-outlined text-2xl">
+                {mobileMenuOpen ? 'close' : 'menu'}
+              </span>
             </button>
           </div>
         </div>

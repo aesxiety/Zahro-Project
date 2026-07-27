@@ -104,43 +104,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 2: PRESTASI & PENGAKUAN (AWARDS MARQUEE) */}
-      <section className="bg-surface-tan py-12 overflow-hidden border-y border-outline-variant/30">
-        <div className="max-w-container-max mx-auto px-margin-mobile mb-6 text-center">
-          <span className="font-label text-primary/70 text-xs uppercase tracking-[0.4em] font-bold">
-            {t.home.awardsTitle}
-          </span>
-        </div>
-        <div className="relative flex overflow-hidden group py-4">
-          <div className="animate-scroll flex items-center gap-16 whitespace-nowrap">
-            {/* First Set */}
-            <div className="flex items-center gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
-              {awards.map((award, i) => (
-                <div key={i} className="flex items-center gap-16">
-                  <span className="font-headline italic text-on-surface text-2xl md:text-3xl">
-                    {award.content}
-                  </span>
-                  <span className="text-primary font-bold opacity-40">•</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Duplicate Set */}
-            <div className="flex items-center gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
-              {awards.map((award, i) => (
-                <div key={`dup-${i}`} className="flex items-center gap-16">
-                  <span className="font-headline italic text-on-surface text-2xl md:text-3xl">
-                    {award.content}
-                  </span>
-                  <span className="text-primary font-bold opacity-40">•</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: HERITAGE & CRAFT */}
+      {/* SECTION 2: HERITAGE & CRAFT */}
       <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
           <ScrollReveal className="md:col-span-5">
@@ -183,6 +147,42 @@ export default function HomePage() {
               />
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* SECTION 3: PRESTASI & PENGAKUAN (AWARDS MARQUEE) */}
+      <section className="bg-surface-tan py-12 overflow-hidden border-y border-outline-variant/30">
+        <div className="max-w-container-max mx-auto px-margin-mobile mb-6 text-center">
+          <span className="font-label text-primary/70 text-xs uppercase tracking-[0.4em] font-bold">
+            {t.home.awardsTitle}
+          </span>
+        </div>
+        <div className="relative flex overflow-hidden group py-4">
+          <div className="animate-scroll flex items-center gap-16 whitespace-nowrap">
+            {/* First Set */}
+            <div className="flex items-center gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
+              {awards.map((award, i) => (
+                <div key={i} className="flex items-center gap-16">
+                  <span className="font-headline italic text-on-surface text-2xl md:text-3xl">
+                    {award.content}
+                  </span>
+                  <span className="text-primary font-bold opacity-40">•</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Duplicate Set */}
+            <div className="flex items-center gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
+              {awards.map((award, i) => (
+                <div key={`dup-${i}`} className="flex items-center gap-16">
+                  <span className="font-headline italic text-on-surface text-2xl md:text-3xl">
+                    {award.content}
+                  </span>
+                  <span className="text-primary font-bold opacity-40">•</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

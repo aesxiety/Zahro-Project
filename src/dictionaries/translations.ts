@@ -8,6 +8,7 @@ export const translations = {
       about: 'Tentang',
       story: 'Cerita Motif',
       collection: 'Koleksi',
+      gallery: 'Galeri',
       contact: 'Kontak',
     },
     home: {
@@ -105,6 +106,18 @@ export const translations = {
       inquireBtn: 'Tanyakan Detail',
       modalBtn: 'Pesan Melalui Konsierge',
     },
+    gallery: {
+      badge: 'Momen & Proses Kriya',
+      title: 'Galeri Foto',
+      subtitle: 'Telusuri momen autentik di balik setiap helai kain — dari canting hingga catwalk.',
+      all: 'Semua',
+      membatik: 'Membatik',
+      pewarnaan: 'Pewarnaan',
+      fashionShow: 'Fashion Show',
+      pameran: 'Pameran',
+      produksi: 'Proses Produksi',
+      photoOf: 'Foto dari',
+    },
     contact: {
       badge: 'Konsierge Wholesale & Pesanan Kustom',
       title: 'Hubungi Batik Zahro',
@@ -147,6 +160,7 @@ export const translations = {
       about: 'About',
       story: 'Our Story',
       collection: 'Collection',
+      gallery: 'Gallery',
       contact: 'Contact',
     },
     home: {
@@ -243,6 +257,18 @@ export const translations = {
       },
       inquireBtn: 'Inquire Details',
       modalBtn: 'Reserve via Concierge',
+    },
+    gallery: {
+      badge: 'Craft Moments & Process',
+      title: 'Photo Gallery',
+      subtitle: 'Explore authentic moments behind every piece of cloth — from canting to catwalk.',
+      all: 'All',
+      membatik: 'Batik Making',
+      pewarnaan: 'Dyeing Process',
+      fashionShow: 'Fashion Show',
+      pameran: 'Exhibition',
+      produksi: 'Production Process',
+      photoOf: 'Photo from',
     },
     contact: {
       badge: 'Wholesale & Bespoke Concierge',
