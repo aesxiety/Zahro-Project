@@ -10,10 +10,12 @@ export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isHome = pathname === '/';
+  const isTransparent = !isScrolled && isHome;
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -39,14 +41,16 @@ export default function Navbar() {
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-background-cream/95 nav-blur luxury-shadow border-b border-outline-variant/30 py-3'
-            : 'bg-background-cream/80 nav-blur border-b border-outline-variant/20 py-5'
+            : 'bg-transparent py-5'
         }`}
       >
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-16">
           {/* Brand Logo */}
           <Link
             href="/"
-            className="font-headline tracking-tighter text-3xl text-on-surface italic flex items-center gap-3 group"
+            className={`font-headline tracking-tighter text-3xl italic flex items-center gap-3 group transition-colors duration-300 ${
+              isTransparent ? 'text-white' : 'text-on-surface'
+            }`}
           >
             <span className="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-white text-lg not-italic font-semibold shadow-md group-hover:scale-105 transition-transform">
               Z
@@ -65,6 +69,8 @@ export default function Navbar() {
                   className={`transition-all duration-300 relative py-1 ${
                     isActive
                       ? 'text-primary border-b-2 border-primary font-bold'
+                      : isTransparent
+                      ? 'text-white/85 hover:text-white'
                       : 'text-on-surface-variant hover:text-primary'
                   }`}
                 >
@@ -77,32 +83,50 @@ export default function Navbar() {
           {/* Right Action Icons & Controls */}
           <div className="flex items-center gap-6">
             {/* Language Switcher Button */}
-            <div className="hidden sm:flex items-center gap-2 font-label text-xs tracking-widest text-on-surface-variant bg-white/50 px-3 py-1.5 rounded-full border border-outline-variant/30">
+            <div
+              className={`hidden sm:flex items-center gap-2 font-label text-xs tracking-widest rounded-full border transition-all duration-300 px-3 py-1.5 ${
+                isTransparent
+                  ? 'text-white bg-white/10 border-white/20'
+                  : 'text-on-surface-variant bg-white/50 border-outline-variant/30'
+              }`}
+            >
               <button
                 onClick={() => setLanguage('ID')}
                 className={`transition-colors ${
-                  language === 'ID' ? 'text-primary font-black' : 'hover:text-primary opacity-60'
+                  language === 'ID'
+                    ? isTransparent
+                      ? 'text-white font-bold'
+                      : 'text-primary font-black'
+                    : isTransparent
+                    ? 'hover:text-white text-white/60'
+                    : 'hover:text-primary opacity-60'
                 }`}
               >
                 ID
               </button>
-              <span className="opacity-30">|</span>
+              <span className={isTransparent ? 'opacity-20' : 'opacity-30'}>|</span>
               <button
                 onClick={() => setLanguage('EN')}
                 className={`transition-colors ${
-                  language === 'EN' ? 'text-primary font-black' : 'hover:text-primary opacity-60'
+                  language === 'EN'
+                    ? isTransparent
+                      ? 'text-white font-bold'
+                      : 'text-primary font-black'
+                    : isTransparent
+                    ? 'hover:text-white text-white/60'
+                    : 'hover:text-primary opacity-60'
                 }`}
               >
                 EN
               </button>
             </div>
 
-
-
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden flex items-center justify-center text-primary focus:outline-none"
+              className={`lg:hidden flex items-center justify-center focus:outline-none transition-colors duration-300 ${
+                isTransparent ? 'text-white' : 'text-primary'
+              }`}
               aria-label="Toggle Menu"
             >
               <span className="material-symbols-outlined text-2xl">

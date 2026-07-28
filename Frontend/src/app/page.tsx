@@ -57,7 +57,7 @@ export default function HomePage() {
   return (
     <>
       {/* SECTION 1: HERO VIDEO */}
-      <section className="relative min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden -mt-16">
         <div className="absolute inset-0">
           <video
             autoPlay
@@ -76,26 +76,23 @@ export default function HomePage() {
 
         <div className="relative text-center px-margin-mobile pt-20 pb-12 max-w-4xl mx-auto z-20">
           <ScrollReveal>
-            <span className="inline-block font-label text-xs uppercase tracking-[0.35em] text-primary-fixed-dim bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/20">
-              {t.home.badge}
-            </span>
-            <h1 className="font-headline text-display-lg text-white text-4xl sm:text-6xl md:text-7xl mb-8 tracking-tight leading-[1.1] drop-shadow-md">
+            <h1 className="font-headline text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 tracking-tight leading-[1.15] drop-shadow-md">
               {t.home.titleLine1} <br className="hidden sm:inline" />
               <span className="italic font-light">{t.home.titleLine2}</span>
             </h1>
-            <p className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 font-body font-light leading-relaxed tracking-wide">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-10 font-body font-light leading-relaxed tracking-wide">
               {t.home.desc}
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center max-w-md mx-auto sm:max-w-none">
               <Link
                 href="/collection"
-                className="w-full sm:w-auto bg-primary text-white px-10 py-4 rounded-lg font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-all luxury-shadow font-bold text-center"
+                className="w-full sm:w-auto bg-primary text-white px-6 py-3.5 sm:px-8 sm:py-3.5 md:px-10 md:py-4 rounded-lg font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-all luxury-shadow font-bold text-center"
               >
                 {t.home.btnExplore}
               </Link>
               <Link
                 href="/contact"
-                className="w-full sm:w-auto border-1.5 border-white text-white px-10 py-4 rounded-lg font-label text-xs uppercase tracking-widest hover:bg-white/10 transition-all font-bold text-center"
+                className="w-full sm:w-auto border-1.5 border-white text-white px-6 py-3.5 sm:px-8 sm:py-3.5 md:px-10 md:py-4 rounded-lg font-label text-xs uppercase tracking-widest hover:bg-white/10 transition-all font-bold text-center"
               >
                 {t.home.btnContact}
               </Link>
