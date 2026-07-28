@@ -82,44 +82,36 @@ export default function Navbar() {
 
           {/* Right Action Icons & Controls */}
           <div className="flex items-center gap-6">
-            {/* Language Switcher Button */}
-            <div
-              className={`hidden sm:flex items-center gap-2 font-label text-xs tracking-widest rounded-full border transition-all duration-300 px-3 py-1.5 ${
+            {/* Membership Button */}
+            <Link
+              href="/membership"
+              className={`hidden md:flex items-center gap-2 font-label text-xs uppercase tracking-widest rounded-full border transition-all duration-300 px-3 py-1.5 font-bold ${
                 isTransparent
-                  ? 'text-white bg-white/10 border-white/20'
-                  : 'text-on-surface-variant bg-white/50 border-outline-variant/30'
+                  ? 'text-white bg-white/10 border-white/20 hover:bg-white/20'
+                  : 'text-on-surface-variant bg-white/50 border-outline-variant/30 hover:text-primary hover:border-primary/50'
               }`}
             >
-              <button
-                onClick={() => setLanguage('ID')}
-                className={`transition-colors ${
-                  language === 'ID'
-                    ? isTransparent
-                      ? 'text-white font-bold'
-                      : 'text-primary font-black'
-                    : isTransparent
-                    ? 'hover:text-white text-white/60'
-                    : 'hover:text-primary opacity-60'
-                }`}
-              >
-                ID
-              </button>
-              <span className={isTransparent ? 'opacity-20' : 'opacity-30'}>|</span>
-              <button
-                onClick={() => setLanguage('EN')}
-                className={`transition-colors ${
-                  language === 'EN'
-                    ? isTransparent
-                      ? 'text-white font-bold'
-                      : 'text-primary font-black'
-                    : isTransparent
-                    ? 'hover:text-white text-white/60'
-                    : 'hover:text-primary opacity-60'
-                }`}
-              >
-                EN
-              </button>
-            </div>
+              <span className="material-symbols-outlined text-[14px] leading-none">
+                diamond
+              </span>
+              <span>{t.nav.membership}</span>
+            </Link>
+
+            {/* Language Switcher Button */}
+            <button
+              onClick={() => setLanguage(language === 'ID' ? 'EN' : 'ID')}
+              className={`hidden sm:flex items-center gap-2 font-label text-xs uppercase tracking-widest rounded-full border transition-all duration-300 px-3 py-1.5 font-bold ${
+                isTransparent
+                  ? 'text-white bg-white/10 border-white/20 hover:bg-white/20'
+                  : 'text-on-surface-variant bg-white/50 border-outline-variant/30 hover:text-primary hover:border-primary/50'
+              }`}
+              title={language === 'ID' ? 'Switch to English' : 'Ubah ke Bahasa Indonesia'}
+            >
+              <span className="material-symbols-outlined text-[14px] leading-none">
+                language
+              </span>
+              <span>{language}</span>
+            </button>
 
             {/* Mobile Menu Button */}
             <button
@@ -153,6 +145,18 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+
+            {/* Membership Link in Mobile Menu */}
+            <Link
+              href="/membership"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-6 flex items-center justify-center gap-2 font-label text-xs uppercase tracking-wider rounded-full border border-primary/20 bg-primary/5 text-primary px-6 py-2.5 max-w-[200px] w-full mx-auto font-bold hover:bg-primary/10 transition-all"
+            >
+              <span className="material-symbols-outlined text-[14px] leading-none font-bold">
+                diamond
+              </span>
+              <span>{t.nav.membership}</span>
+            </Link>
           </div>
 
           <div className="mt-12 flex justify-center items-center gap-4 font-label text-sm tracking-widest text-on-surface-variant">

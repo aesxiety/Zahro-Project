@@ -10,6 +10,7 @@ export const translations = {
       collection: 'Koleksi',
       gallery: 'Galeri',
       contact: 'Kontak',
+      membership: 'Join Zahro Royals',
     },
     home: {
       badge: 'Warisan Pengrajin Kalimantan',
@@ -158,10 +159,11 @@ export const translations = {
       brand: 'Batik Zahro',
       home: 'Home',
       about: 'About',
-      story: 'Our Story',
+      story: 'Motif Stories',
       collection: 'Collection',
       gallery: 'Gallery',
       contact: 'Contact',
+      membership: 'Join Zahro Royals',
     },
     home: {
       badge: 'Borneo Artisan Heritage',
