@@ -9,12 +9,12 @@ export default function HomePage() {
   const { t } = useLanguage();
 
   const awards = [
-    { type: 'text', content: 'UNESCO Heritage Partner' },
-    { type: 'text', content: 'Sustainable Fashion Award 2023' },
-    { type: 'text', content: 'Vogue Editorial Feature' },
-    { type: 'text', content: 'Artisan Heritage Grant' },
-    { type: 'text', content: "Harper's Bazaar Edit" },
-    { type: 'text', content: 'Tatler Asia Craft Award' },
+    { type: 'text', content: 'Peserta Top 50 Nasional Inovasi Wastra' },
+    { type: 'text', content: 'Karya Kreatif Indonesia' },
+    { type: 'text', content: 'Bootcamp Nasional' },
+    { type: 'text', content: 'Pameran' },
+    { type: 'text', content: "Workshop" },
+    { type: 'text', content: 'Liputan media' },
   ];
 
   const collections = [
@@ -101,6 +101,43 @@ export default function HomePage() {
         </div>
       </section>
 
+
+      {/* SECTION 3: PRESTASI & PENGAKUAN (AWARDS MARQUEE) */}
+      <section className="bg-surface-tan py-5 md:py-6 overflow-hidden border-y border-outline-variant/30">
+        <div className="max-w-container-max mx-auto px-margin-mobile mb-2 md:mb-3 text-center">
+          <span className="font-label text-primary/70 text-xs uppercase tracking-[0.4em] font-bold">
+            {t.home.awardsTitle}
+          </span>
+        </div>
+        <div className="relative flex overflow-hidden group py-1.5 md:py-2">
+          <div className="animate-scroll flex items-center gap-16 whitespace-nowrap">
+            {/* First Set */}
+            <div className="flex items-center gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
+              {awards.map((award, i) => (
+                <div key={i} className="flex items-center gap-16">
+                  <span className="font-headline italic text-on-surface text-lg md:text-2xl">
+                    {award.content}
+                  </span>
+                  <span className="text-primary font-bold opacity-40">•</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Duplicate Set */}
+            <div className="flex items-center gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
+              {awards.map((award, i) => (
+                <div key={`dup-${i}`} className="flex items-center gap-16">
+                  <span className="font-headline italic text-on-surface text-lg md:text-2xl">
+                    {award.content}
+                  </span>
+                  <span className="text-primary font-bold opacity-40">•</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 2: HERITAGE & CRAFT */}
       <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
@@ -147,41 +184,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 3: PRESTASI & PENGAKUAN (AWARDS MARQUEE) */}
-      <section className="bg-surface-tan py-12 overflow-hidden border-y border-outline-variant/30">
-        <div className="max-w-container-max mx-auto px-margin-mobile mb-6 text-center">
-          <span className="font-label text-primary/70 text-xs uppercase tracking-[0.4em] font-bold">
-            {t.home.awardsTitle}
-          </span>
-        </div>
-        <div className="relative flex overflow-hidden group py-4">
-          <div className="animate-scroll flex items-center gap-16 whitespace-nowrap">
-            {/* First Set */}
-            <div className="flex items-center gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
-              {awards.map((award, i) => (
-                <div key={i} className="flex items-center gap-16">
-                  <span className="font-headline italic text-on-surface text-2xl md:text-3xl">
-                    {award.content}
-                  </span>
-                  <span className="text-primary font-bold opacity-40">•</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Duplicate Set */}
-            <div className="flex items-center gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
-              {awards.map((award, i) => (
-                <div key={`dup-${i}`} className="flex items-center gap-16">
-                  <span className="font-headline italic text-on-surface text-2xl md:text-3xl">
-                    {award.content}
-                  </span>
-                  <span className="text-primary font-bold opacity-40">•</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 4: EDITORIAL COLLECTION GRID */}
       <section className="bg-surface-tan py-section-gap border-y border-outline-variant/20">
