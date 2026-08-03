@@ -329,6 +329,7 @@ export const translations = {
       pameran: 'Exhibition',
       produksi: 'Production Process',
       photoOf: 'Photo from',
+      sertifikat: 'Certificates',
     },
     contact: {
       badge: 'Wholesale & Bespoke Concierge',

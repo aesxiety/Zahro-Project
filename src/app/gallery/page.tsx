@@ -3,9 +3,19 @@
 import React, { useState } from 'react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useLanguage } from '@/context/LanguageContext';
+import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
-type Category = 'ALL' | 'MEMBATIK' | 'PEWARNAAN' | 'FASHION_SHOW' | 'PAMERAN' | 'PRODUKSI';
+type Category =
+  | 'ALL'
+  | 'MEMBATIK'
+  | 'PEWARNAAN'
+  | 'FASHION_SHOW'
+  | 'PAMERAN'
+  | 'PRODUKSI'
+  | 'SERTIFIKAT';
 
+  
 interface GalleryPhoto {
   id: number;
   src: string;
@@ -141,7 +151,95 @@ const photos: GalleryPhoto[] = [
     caption: 'Pengemasan premium dengan kotak kayu berukir untuk kolektor global',
     span: 'tall',
   },
-];
+  // SERTIFIKAT
+      {
+        id: 16,
+        src: './images/gambar1.jpeg',
+        alt: 'Sertifikat 1',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+        span: 'normal',
+      },
+      {
+        id: 17,
+        src: './images/gambar2.jpeg',
+        alt: 'Sertifikat 2',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+        span: 'tall',
+      },
+      {
+        id: 18,
+        src: './images/gambar3.jpeg',
+        alt: 'Sertifikat 3',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+        span: 'wide',
+      },
+      {
+        id: 19,
+        src: './images/gambar4.jpeg',
+        alt: 'Sertifikat 4',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      {
+        id: 20,
+        src: './images/gambar5.jpeg',
+        alt: 'Sertifikat 5',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      {
+        id: 21,
+        src: './images/gambar6.jpeg',
+        alt: 'Sertifikat 6',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      {
+        id: 22,
+        src: './images/gambar7.jpeg',
+        alt: 'Sertifikat 7',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      {
+        id: 23,
+        src: './images/gambar8.jpeg',
+        alt: 'Sertifikat 8',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      {
+        id: 24,
+        src: './images/gambar9.jpeg',
+        alt: 'Sertifikat 9',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      {
+        id: 25,
+        src: './images/gambar10.jpeg',
+        alt: 'Sertifikat 10',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      {
+        id: 26,
+        src: './images/gambar11.jpeg',
+        alt: 'Sertifikat 11',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      {
+        id: 27,
+        src: './images/gambar12.jpeg',
+        alt: 'Sertifikat 12',
+        category: 'SERTIFIKAT',
+        caption: 'Sertifikat Batik Zahro',
+      },
+      ];
 
 const categoryMap: Record<Category, Exclude<Category, 'ALL'> | null> = {
   ALL: null,
@@ -150,11 +248,28 @@ const categoryMap: Record<Category, Exclude<Category, 'ALL'> | null> = {
   FASHION_SHOW: 'FASHION_SHOW',
   PAMERAN: 'PAMERAN',
   PRODUKSI: 'PRODUKSI',
+  SERTIFIKAT: 'SERTIFIKAT',
 };
 
 export default function GalleryPage() {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<Category>('ALL');
+  const searchParams = useSearchParams();
+
+useEffect(() => {
+  const category = searchParams.get('category');
+
+    if (
+      category === 'MEMBATIK' ||
+      category === 'PEWARNAAN' ||
+      category === 'FASHION_SHOW' ||
+      category === 'PAMERAN' ||
+      category === 'PRODUKSI' ||
+      category === 'SERTIFIKAT'
+    ) {
+      setActiveTab(category);
+    }
+  }, [searchParams]);
   const [lightbox, setLightbox] = useState<GalleryPhoto | null>(null);
   const [lightboxIdx, setLightboxIdx] = useState<number>(0);
 
@@ -165,6 +280,7 @@ export default function GalleryPage() {
     { key: 'FASHION_SHOW', label: t.gallery.fashionShow },
     { key: 'PAMERAN', label: t.gallery.pameran },
     { key: 'PRODUKSI', label: t.gallery.produksi },
+    { key: 'SERTIFIKAT', label: 'Sertifikat' },
   ];
 
   const filtered =
@@ -197,6 +313,7 @@ export default function GalleryPage() {
       FASHION_SHOW: t.gallery.fashionShow,
       PAMERAN: t.gallery.pameran,
       PRODUKSI: t.gallery.produksi,
+      SERTIFIKAT: 'Sertifikat',
     };
     return map[cat];
   };
@@ -240,37 +357,51 @@ export default function GalleryPage() {
       {/* GALLERY GRID */}
       <section className="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-          {filtered.map((photo, idx) => (
-            <ScrollReveal key={photo.id} delay={idx * 60} className="break-inside-avoid">
-              <div
-                className="group relative overflow-hidden rounded-xl luxury-shadow cursor-pointer"
-                onClick={() => openLightbox(photo, idx)}
-              >
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className={`w-full object-cover transition-transform duration-700 group-hover:scale-110 ${
-                    photo.span === 'tall'
-                      ? 'aspect-[2/3]'
-                      : photo.span === 'wide'
-                        ? 'aspect-[4/3]'
-                        : 'aspect-square'
-                  }`}
-                />
+{filtered.map((photo, idx) => (
+  <ScrollReveal
+    key={photo.id}
+    delay={idx * 60}
+    className="break-inside-avoid"
+  >
+    <div
+      className={`group relative rounded-xl luxury-shadow cursor-pointer overflow-hidden ${
+        photo.category === 'SERTIFIKAT' ? 'bg-white' : ''
+      }`}
+      onClick={() => openLightbox(photo, idx)}
+    >
+      <img
+        src={photo.src}
+        alt={photo.alt}
+        className={`w-full transition-transform duration-700 ${
+          photo.category === 'SERTIFIKAT'
+            ? 'h-auto object-contain group-hover:scale-105'
+            : `object-cover group-hover:scale-110 ${
+                photo.span === 'tall'
+                  ? 'aspect-[2/3]'
+                  : photo.span === 'wide'
+                    ? 'aspect-[4/3]'
+                    : 'aspect-square'
+              }`
+        }`}
+      />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5">
-                  <span className="inline-block font-label text-[10px] uppercase tracking-widest text-primary-fixed-dim bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 mb-2 self-start">
-                    {getCategoryLabel(photo.category)}
-                  </span>
-                  <p className="font-body text-sm text-white leading-snug">{photo.caption}</p>
-                  <span className="material-symbols-outlined text-white/60 text-lg mt-2 self-end">
-                    open_in_full
-                  </span>
-                </div>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5">
+                <span className="inline-block font-label text-[10px] uppercase tracking-widest text-primary-fixed-dim bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 mb-2 self-start">
+                  {getCategoryLabel(photo.category)}
+                </span>
+
+                <p className="font-body text-sm text-white leading-snug">
+                  {photo.caption}
+                </p>
+
+                <span className="material-symbols-outlined text-white/60 text-lg mt-2 self-end">
+                  open_in_full
+                </span>
               </div>
-            </ScrollReveal>
-          ))}
+            </div>
+          </ScrollReveal>
+        ))}
         </div>
 
         {filtered.length === 0 && (

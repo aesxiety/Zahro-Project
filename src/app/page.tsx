@@ -347,14 +347,20 @@ export default function HomePage() {
               </h4>
             </ScrollReveal>
 
-            <ScrollReveal delay={300} className="p-8 border border-white/10 rounded-xl hover:bg-white/5 transition-colors">
-              <span className="material-symbols-outlined text-4xl text-primary-fixed-dim mb-4">
-                eco
-              </span>
-              <h4 className="font-label uppercase tracking-widest text-xs font-bold text-white">
-                {t.home.stat3}
-              </h4>
-            </ScrollReveal>
+              <Link href="/gallery?category=SERTIFIKAT">
+                <ScrollReveal
+                  delay={300}
+                  className="p-8 border border-white/10 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-4xl text-primary-fixed-dim mb-4">
+                    eco
+                  </span>
+
+                  <h4 className="font-label uppercase tracking-widest text-xs font-bold text-white">
+                    {t.home.stat3}
+                  </h4>
+                </ScrollReveal>
+              </Link>
 
             <ScrollReveal delay={400} className="p-8 border border-white/10 rounded-xl hover:bg-white/5 transition-colors">
               <span className="material-symbols-outlined text-4xl text-primary-fixed-dim mb-4">
