@@ -6,7 +6,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const awards = [
     { type: 'text', content: t.home.award1, link: '/our-story' },
@@ -20,38 +20,81 @@ export default function HomePage() {
   const collections = [
     {
       id: 1,
-      title: 'Urban Nomad Coat',
-      category: 'Hand-drawn Silk Batik',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuBqIcPUankbJaODyqkvl2v8dpz8wFPly50q-j_ZYknyyVJoMNe4Q3THm172u8rNCvIRI4LkWWrSxI0FQD1heHtv2adeL4BTQ3is4rtnwIuRrzPP0EN9zUbHHoYZvX4cFsfhOg9dDLbW9i5HMdk3C9sG0flBnF0lcRSVhX2_M8mSYVMvKsXRKYj-3xAuLMlImSLpObXFRGKItECl2GK0kQ-4pxxsOBJ3ldDQQaJBOGSHPso6c5HiS1bQBd8UuJbx5BJ5lfKzHrPvhIg',
-      aspect: 'aspect-[0.55]',
+      title: 'Motif Buah Tipah',
+      category: 'Hand-drawn Bangkirai Natural Dye',
+      image: '/images/motif-buah-tipah.avif',
+      aspect: 'aspect-[4/5]',
       delay: 100,
     },
     {
       id: 2,
-      title: 'Street Heritage Vest',
-      category: 'Natural Dye Indigo & Bangkirai',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuDgNKduK3o9hMPNC4vMUFSi-lCceOIaFipHyf7VwFKQUK7anhprehrgh_Aw_Zh7TvR-n8EcAu26avOd93qU2T09Heggdpuzd-R6TqUu5PpYDdxEH8tijxJdAg3gKiTLlsqPVKF_VG5vs_u4n0RjCpeEHCZmV7NMP4lgqFQXrWD2S9HaWy6wsscxeQdBUD3T32MvKu71aCn6Xnaf38HAx3Ht-3EwWBBqtVjX4qZ1SFZkp4QTazQ3xO_eAfxNrzuM6KCeeW4QACoIJMo',
-      aspect: 'aspect-[0.53]',
+      title: 'Royal Kelubut',
+      category: 'Bangkirai Exploration Series',
+      image: '/images/motif-royal-kelubut.avif',
+      aspect: 'aspect-[4/5]',
       delay: 200,
+
       extraPadding: 'md:pt-12',
     },
     {
       id: 3,
-      title: 'Ancestral Shawl',
-      category: 'Masterwork Collection',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAsO6yJKKAMBoyXD4lm7LSckZ2YQGyLo-q5YA7bNBaJwar-OLhHTsmVe4u3XKRRlqyxQUCZoBqquplUsWAbIA7MkHaXF6BL1CCzLHkGkOdFI_wceU6a2S2Dgok-Zrak-p2J7xMbSiK0qsE4oiDFiM3RUYbXjL7IhW5yYKh8DKH6BE4q_RZjRONa67Ji_wBsu_whqTFV7xj9tm9JD5j4XPOfePLmLultibJjXFuVwJfJjhCEtxKyOeZseKzt_ZGJLqOOVelzIfRD2KA',
-      aspect: 'aspect-[0.58]',
+      title: 'Lelana Rotan Dayak',
+      category: 'Natural Dye Indigo & Bangkirai',
+      image: '/images/motif-lelana-rotan-dayak.avif',
+      aspect: 'aspect-[4/5]',
       delay: 300,
     },
   ];
 
   const faqs = [
-    { q: t.home.faq1Q, a: t.home.faq1A },
-    { q: t.home.faq2Q, a: t.home.faq2A },
-    { q: t.home.faq3Q, a: t.home.faq3A },
+    {
+      q: language === 'ID' ? 'Apa yang membedakan Zahro Batik?' : 'What makes Zahro Batik unique?',
+      a: language === 'ID'
+        ? 'Zahro Batik memadukan keahlian batik tradisional Indonesia dengan pewarna alami serta proses produksi yang inklusif bersama pembatik disabilitas.'
+        : 'Zahro Batik combines traditional Indonesian batik craftsmanship with natural dyes and an inclusive production process involving artisans with disabilities.'
+    },
+    {
+      q: language === 'ID' ? 'Apakah semua produk dibuat secara handmade?' : 'Are all products handmade?',
+      a: language === 'ID'
+        ? 'Ya. Setiap produk dibuat secara manual oleh perajin berpengalaman sehingga memiliki karakter yang unik.'
+        : 'Yes. Every product is handcrafted by skilled artisans, giving each piece its own unique character and detail.'
+    },
+    {
+      q: language === 'ID' ? 'Apakah Zahro Batik melayani pengiriman internasional?' : 'Do you offer international shipping?',
+      a: language === 'ID'
+        ? 'Ya. Kami melayani pengiriman ke berbagai negara melalui mitra logistik terpercaya.'
+        : 'Yes. We ship to various countries through trusted international logistics partners.'
+    },
+    {
+      q: language === 'ID' ? 'Apakah saya dapat memesan dalam jumlah besar atau custom?' : 'Can I place bulk or custom orders?',
+      a: language === 'ID'
+        ? 'Ya. Kami menerima pemesanan grosir, corporate gift, serta pengembangan produk sesuai kebutuhan.'
+        : 'Yes. We accept wholesale, corporate gift, and custom orders tailored to your requirements.'
+    },
+    {
+      q: language === 'ID' ? 'Bahan apa yang digunakan?' : 'What materials do you use?',
+      a: language === 'ID'
+        ? 'Kami menggunakan kain berkualitas seperti katun, rayon, dan sutra, tergantung pada koleksinya.'
+        : 'Our collections are crafted from premium fabrics such as cotton, rayon, and silk, depending on the product.'
+    },
+    {
+      q: language === 'ID' ? 'Bagaimana cara merawat batik?' : 'How should I care for my batik?',
+      a: language === 'ID'
+        ? 'Cuci dengan tangan menggunakan deterjen lembut, hindari pemutih, dan jemur di tempat yang teduh.'
+        : 'Hand wash with a mild detergent, avoid bleach, and dry in the shade to preserve the fabric and its colors.'
+    },
+    {
+      q: language === 'ID' ? 'Apakah Zahro Batik menggunakan pewarna alami?' : 'Do you use natural dyes?',
+      a: language === 'ID'
+        ? 'Ya. Sebagian besar koleksi menggunakan pewarna alami yang dikembangkan melalui proses yang lebih ramah lingkungan.'
+        : 'Yes. Many of our collections are colored using natural dyes developed through environmentally responsible processes.'
+    },
+    {
+      q: language === 'ID' ? 'Bagaimana cara menghubungi Zahro Batik?' : 'How can I contact Zahro Batik?',
+      a: language === 'ID'
+        ? 'Anda dapat menghubungi kami melalui halaman Kontak, email, atau WhatsApp untuk pertanyaan maupun kerja sama.'
+        : 'You can contact us through our Contact page, email, or WhatsApp for product inquiries and partnership opportunities.'
+    }
   ];
 
   return (
@@ -173,7 +216,7 @@ export default function HomePage() {
                 <img
                   className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   alt="Borneo Natural Textile Detail"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCk53x0_q54u--ZvblitKtF2YiHZuel4-VnBROY7rqbOwx3n36goiUhzXIi4KmSGdpIa4hgXk5kz4pyODps_OU_F33vMZSl1oZwBWP5ZklNNaWkeFASJSS8K9_oHHzbzquQUND7unM4rdnMt13cslU5KCG7qKKYpNQYU5_HdzzYuDGHAwBjsr_nbk7lSzFgrolxoI6UcuLcSwpdhNY2zdZEChsfR-FHNTyowpS_Z1kvjUpg4YRXL5l10wS-ai2EQGz4MxvyfVTuCc"
+                  src="/images/inovasi-pewarnaan-alami.avif"
                 />
               </div>
             </div>
@@ -417,8 +460,8 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 7: FREQUENTLY ASKED QUESTIONS */}
-      <section className="py-section-gap max-w-3xl mx-auto px-margin-mobile">
-        <ScrollReveal className="text-center mb-16">
+      <section className="py-12 md:py-16 max-w-3xl mx-auto px-margin-mobile">
+        <ScrollReveal className="text-center mb-10">
           <span className="font-label text-primary uppercase tracking-[0.3em] text-xs font-bold">
             {t.home.faqBadge}
           </span>
@@ -427,17 +470,17 @@ export default function HomePage() {
           </h2>
         </ScrollReveal>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           {faqs.map((faq, index) => (
             <ScrollReveal key={index} delay={index * 100}>
-              <details className="group border-b border-outline-variant/50 pb-4 cursor-pointer">
-                <summary className="flex justify-between items-center list-none py-4 font-title text-xl text-on-surface select-none">
+              <details className="group border-b border-outline-variant/50 pb-2 cursor-pointer">
+                <summary className="flex justify-between items-center list-none py-2.5 font-title text-lg text-on-surface select-none">
                   <span>{faq.q}</span>
                   <span className="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-primary">
                     expand_more
                   </span>
                 </summary>
-                <div className="pt-2 pb-4 text-body-text font-body text-body-lg leading-relaxed">
+                <div className="pt-1 pb-3 text-body-text font-body text-body-sm leading-relaxed">
                   {faq.a}
                 </div>
               </details>
