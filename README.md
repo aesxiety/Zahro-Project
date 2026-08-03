@@ -1,147 +1,99 @@
 # 🌿 Batik Zahro — Luxury Borneo Artisan Heritage Web Application
 
-> **A modern, high-end web application celebrating the authentic craft, sustainability, and contemporary luxury of Borneo batik.**
-
-This repository houses the complete **Batik Zahro** platform—a bilingual (Indonesian/English) luxury ecommerce and editorial experience built with cutting-edge web technologies. It features a sophisticated Next.js frontend with dynamic multi-language support, Tailwind CSS styling, and enterprise-grade design system compliance.
-
-**Website**: [https://zahro-project.vercel.app](https://zahro-project.vercel.app)
+A modern, high-end web application built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and dynamic **Multi-Language (ID/EN)** support. This project recreates the Stitch luxury design system for **Batik Zahro**, featuring Kalimantan Bangkirai natural dye textile heritage.
 
 ---
 
-## 📋 Table of Contents
+## 🚀 Quick Start for Collaborators
 
-- [Project Overview](#project-overview)
-- [Repository Structure](#repository-structure)
-- [Tech Stack](#tech-stack)
-- [Quick Start](#quick-start)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running Locally](#running-locally)
-- [Development Guide](#development-guide)
-- [Collaboration Guidelines](#collaboration-guidelines)
-- [Contributing](#contributing)
-- [Project Status](#project-status)
-- [License](#license)
-
----
-
-## 🎯 Project Overview
-
-**Batik Zahro** is a luxury heritage brand platform that:
-
-- ✨ Showcases premium Borneo batik textiles with natural dyes
-- 🌍 Provides bilingual content (Indonesian & English) for global reach
-- 🎨 Maintains a cohesive, artisanal design system rooted in earth tones and contemporary elegance
-- 📱 Delivers a seamless experience across desktop, tablet, and mobile devices
-- ♻️ Emphasizes sustainability and authentic craftsmanship
-- 🛍️ Enables luxury ecommerce interactions through a concierge model
-
----
-
-## 📁 Repository Structure
-
-```
-Zahro-Project/
-├── Frontend/                    # Next.js web application (TypeScript, React 19, Tailwind CSS)
-│   ├── src/
-│   │   ├── app/                 # App Router pages & layouts
-│   │   ├── components/          # Reusable React components (Navbar, Footer, ScrollReveal)
-│   │   ├── context/             # React Context for language state management
-│   │   └── dictionaries/        # Centralized bilingual translation dictionary
-│   ├── package.json             # Dependencies & scripts
-│   ├── tailwind.config.ts       # Design tokens, colors, typography
-│   ├── tsconfig.json            # TypeScript configuration
-│   ├── README.md                # Frontend-specific guide
-│   ├── DESIGN.md                # Design system documentation
-│   └── .gitignore
-│
-├── Backend/                     # Backend services (planned/in-progress)
-│   └── test.py                  # Placeholder for backend logic
-│
-├── README.md                    # **← You are here** (Root project documentation)
-└── .git/                        # Git configuration
-
-```
-
-### **Frontend Directory Details**
-
-| Directory | Purpose |
-|-----------|---------|
-| `src/app/` | Next.js App Router pages: home, about, our-story, collection, contact |
-| `src/components/` | Reusable UI: Navbar, Footer, ScrollReveal animations |
-| `src/context/` | LanguageContext for global i18n state & localStorage persistence |
-| `src/dictionaries/` | Type-safe translation dictionary (ID/EN) |
-
----
-
-## 🛠️ Tech Stack
-
-### **Frontend**
-- **Framework**: Next.js 16.2.12 (App Router)
-- **Language**: TypeScript 5.9.3
-- **Styling**: Tailwind CSS 3.4.19 + PostCSS
-- **Runtime**: React 19.2.8 + React DOM
-- **UI Libraries**: 
-  - Lucide React (icons)
-  - clsx (conditional classnames)
-  - Tailwind Merge (class merging utilities)
-- **Node.js**: v18.17.0 or higher (v20+ recommended)
-
-### **Design System**
-- **Typography**: Cormorant Garamond (display) + Manrope (body)
-- **Color Palette**: Earth tones (terracotta, gold, forest green, cream)
-- **Component Library**: Tailwind utilities with custom design tokens
-- **Responsive**: Mobile-first design (mobile, tablet, desktop)
-
-### **Backend** *(Planned)*
-- Python-based services (placeholder: `Backend/test.py`)
-
----
-
-## 🚀 Quick Start
+Follow these instructions to run and edit the project locally on your machine.
 
 ### Prerequisites
 
-Before you begin, ensure you have:
+- **Node.js**: `v18.17.0` or higher (v20+ recommended)
+- **Package Manager**: `npm` (v9+ or higher) or `pnpm` / `yarn`
 
-- **Node.js** v18.17.0 or higher installed (v20+ recommended)
-  - [Download Node.js](https://nodejs.org)
-  - Verify: `node --version` and `npm --version`
-- **Git** for version control
-- A code editor (VS Code recommended)
+---
 
-### Installation
+### 1. Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/aesxiety/Zahro-Project.git
-   cd Zahro-Project
-   ```
+Clone or navigate to the frontend workspace directory:
 
-2. **Navigate to the Frontend directory**:
-   ```bash
-   cd Frontend
-   ```
+```bash
+cd "e:/Zahro Project/Src/Frontend"
+```
 
-3. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-   
-   *Or with yarn/pnpm:*
-   ```bash
-   yarn install
-   # or
-   pnpm install
-   ```
+Install all required dependencies:
 
-### Running Locally
+```bash
+npm install
+```
 
-**Start the development server**:
+---
+
+### 2. Running Local Development Server
+
+Start the Next.js development server:
+
 ```bash
 npm run dev
 ```
 
+<<<<<<< HEAD
+Open your browser and navigate to:
+👉 **`http://localhost:3000`**
+
+The server supports Hot Module Replacement (HMR). Any changes you save in `src/` will automatically update in the browser.
+
+---
+
+### 3. Building & Running for Production
+
+To create an optimized production build:
+
+```bash
+npm run build
+```
+
+To run the production build locally:
+
+```bash
+npm run start
+```
+
+---
+
+## 📁 Project Architecture & Folder Structure
+
+```
+e:\Zahro Project\Src\Frontend\
+├── package.json               # Dependencies and scripts (dev, build, start, lint)
+├── tsconfig.json              # TypeScript compiler configuration
+├── tailwind.config.ts         # Custom design tokens (colors, typography, spacing)
+├── postcss.config.js          # PostCSS configuration for Tailwind CSS
+├── README.md                  # Project documentation & collaborator guide
+└── src/
+    ├── app/                   # Next.js App Router Pages & Layouts
+    │   ├── globals.css        # Material Symbols, animations, scrollbar & motif styles
+    │   ├── layout.tsx         # Root layout with LanguageProvider, fonts, Navbar & Footer
+    │   ├── page.tsx           # Home Page (Hero Video, Awards Marquee, Split-grid, FAQ)
+    │   ├── about/
+    │   │   └── page.tsx       # About Page (Story, Philosophy, Vision, Mission, Pillars)
+    │   ├── our-story/
+    │   │   └── page.tsx       # Our Story Page (Borneo Motifs & Dye Process Timeline)
+    │   ├── collection/
+    │   │   └── page.tsx       # Collection Page (Filterable Catalog & Detail Modal)
+    │   └── contact/
+    │       └── page.tsx       # Contact Page (Concierge Form, Hubs, Duty-Paid Info)
+    ├── components/            # Reusable UI Components
+    │   ├── Navbar.tsx         # Responsive Header with ID/EN language toggle & drawer
+    │   ├── Footer.tsx         # 4-Column Luxury Footer
+    │   └── ScrollReveal.tsx   # IntersectionObserver scroll animation wrapper
+    ├── context/
+    │   └── LanguageContext.tsx# React Context for global i18n state & localStorage persistence
+    └── dictionaries/
+        └── translations.ts    # Bilingual (Indonesian & English) translation dictionary
+=======
 The application will be available at:
 👉 **[http://localhost:3000](http://localhost:3000)**
 
@@ -156,10 +108,24 @@ npm run start
 **Run linting**:
 ```bash
 npm run lint
+>>>>>>> ad8b59f8793352dff1ba9b5a83267cc779cb1c6a
 ```
 
 ---
 
+<<<<<<< HEAD
+## 🛠️ How to Edit & Customize This Project
+
+### A. Editing Page Content & Translations (Indonesian & English)
+
+All text content across the website is managed through a central, type-safe dictionary:
+📄 **`src/dictionaries/translations.ts`**
+
+To edit text or add new translations:
+1. Open `src/dictionaries/translations.ts`.
+2. Locate the relevant page section (`home`, `about`, `story`, `collection`, `contact`, `nav`, `footer`).
+3. Update both `ID` (Indonesian) and `EN` (English) objects:
+=======
 ## 📖 Development Guide
 
 ### **1. Editing Text Content & Translations**
@@ -173,6 +139,7 @@ All text across the website is centralized in a single, type-safe dictionary:
 1. Open `Frontend/src/dictionaries/translations.ts`
 2. Locate the relevant section (`home`, `about`, `story`, `collection`, `contact`, `nav`, `footer`)
 3. Update both `ID` (Indonesian) and `EN` (English) keys:
+>>>>>>> ad8b59f8793352dff1ba9b5a83267cc779cb1c6a
 
 ```typescript
 export const translations = {
@@ -191,6 +158,30 @@ export const translations = {
 };
 ```
 
+<<<<<<< HEAD
+---
+
+### B. Modifying Design Tokens & Colors
+
+Theme colors, fonts, spacing scales, and border radii are configured in:
+📄 **`tailwind.config.ts`**
+
+Key Color Tokens:
+- **Primary (Terracotta)**: `#8e4922`
+- **Secondary (Gold Accent)**: `#805529`
+- **Tertiary (Forest Green)**: `#4f6149`
+- **Background Cream**: `#F8F3EE`
+- **Surface Tan**: `#EEE2D4`
+- **Body Text**: `#5E5147`
+
+To change a color or font token, update `tailwind.config.ts`:
+
+```typescript
+colors: {
+  primary: '#8e4922',
+  'background-cream': '#F8F3EE',
+  // Add or modify color tokens here
+=======
 Then use in components:
 ```tsx
 import { useLanguage } from '@/context/LanguageContext';
@@ -198,11 +189,36 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function MyComponent() {
   const { t } = useLanguage();
   return <h1>{t.home.titleLine1}</h1>;
+>>>>>>> ad8b59f8793352dff1ba9b5a83267cc779cb1c6a
 }
 ```
 
 ---
 
+<<<<<<< HEAD
+### C. Adding a New Page Route
+
+To create a new page in Next.js App Router (e.g. `/sustainability`):
+
+1. Create a new directory inside `src/app/`:
+   `src/app/sustainability/page.tsx`
+
+2. Add your React component:
+
+```tsx
+'use client';
+
+import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
+
+export default function SustainabilityPage() {
+  const { t } = useLanguage();
+
+  return (
+    <section className="py-20 max-w-container-max mx-auto px-margin-mobile">
+      <h1 className="font-headline text-5xl">Sustainability Report</h1>
+    </section>
+=======
 ### **2. Customizing Design Tokens & Colors**
 
 Theme colors, fonts, spacing, and borders are defined in:
@@ -313,10 +329,53 @@ export default function MySection() {
     <ScrollReveal>
       <div className="my-content">Content animates on scroll</div>
     </ScrollReveal>
+>>>>>>> ad8b59f8793352dff1ba9b5a83267cc779cb1c6a
   );
 }
 ```
 
+<<<<<<< HEAD
+3. Add navigation link to `src/components/Navbar.tsx`:
+
+```tsx
+const navLinks = [
+  // ...
+  { name: t.nav.sustainability, href: '/sustainability' },
+];
+```
+
+---
+
+### D. Managing Components
+
+- **Navbar (`src/components/Navbar.tsx`)**: Contains glassmorphism sticky header logic, scroll observer, mobile menu drawer, and `ID` / `EN` language switcher buttons.
+- **Footer (`src/components/Footer.tsx`)**: Contains brand bio, collection links, ethos links, and copyright info.
+- **ScrollReveal (`src/components/ScrollReveal.tsx`)**: Controls smooth IntersectionObserver entrance animations for elements as they enter the viewport.
+
+---
+
+## 🎨 Typography & Fonts
+
+This project uses Google Fonts loaded via `next/font/google` in `src/app/layout.tsx`:
+
+- **Cormorant Garamond** (`var(--font-cormorant)` / `font-headline` / `font-display`): Used for elegant luxury display titles and serif headings.
+- **Manrope** (`var(--font-manrope)` / `font-body` / `font-label`): Used for body text, UI buttons, uppercase labels, and subheadings.
+
+---
+
+## 🌐 Language Persistence
+
+Language state (`ID` or `EN`) is managed by `LanguageProvider` (`src/context/LanguageContext.tsx`).
+When a user selects `ID` or `EN`, their preference is saved in `localStorage.setItem('batik_zahro_lang', lang)`. Upon revisiting the website, the application automatically restores their preferred language.
+
+---
+
+## 📄 License & Attribution
+
+- **Project**: Batik Zahro — Borneo Artisan Heritage Website Application
+- **Design System**: Artisanal Earth & Gold (Stitch TEXT_TO_UI_PRO)
+- **Built for**: High-fashion luxury Indonesian batik presentation and global ecommerce concierge.
+=======
 ---
 
 ### **5. Language Persistence**
@@ -429,3 +488,4 @@ This project is licensed under the **ISC License** — see the `LICENSE` file fo
 [Visit Live Site](https://zahro-project.vercel.app) • [GitHub Repo](https://github.com/aesxiety/Zahro-Project)
 
 </div>
+>>>>>>> ad8b59f8793352dff1ba9b5a83267cc779cb1c6a
