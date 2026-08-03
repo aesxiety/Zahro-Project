@@ -45,7 +45,7 @@ export default function AboutPage() {
           <img
             className="w-full h-full object-cover"
             alt="Artisan applying canting wax to silk"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsqQJJDWQeX3a0G9MiTHAcvvg-aX6D0T3DmXbE9dykFNnXJkOlAbpV52sYTElFF3apIWH9oZxi4FF2yigisxw1jMxaJp-v6K4B5ItBsIPhviFoRfRMRNrWzbB5GnOBFlWyGyyHGkEaS7DwQczQXuMmCUFB7xEbI4mH7a4BU8LVRBR0mx3etcReIuyvSk3VtqRmQf4ht6WKwtCKy4HMWkzPSCcDDqVKFzbDVY1e6cV3BQ5TGo1rI2Q3Gt4rpoXFCi4b1Zj91x8nVyE"
+            src="/images/Contact Us.avif"
           />
         </div>
         <div className="relative z-20 text-center text-white px-margin-mobile max-w-4xl">

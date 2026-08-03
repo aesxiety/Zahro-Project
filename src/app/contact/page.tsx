@@ -5,37 +5,16 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [question, setQuestion] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
   };
-
-  const hubs = [
-    {
-      city: 'Jakarta Atelier',
-      address: 'Jl. Senopati No. 88, Kebayoran Baru, Jakarta Selatan',
-      phone: '+62 21 555 0192',
-      email: 'jakarta@batikzahro.com',
-      hours: 'Mon - Sat: 10:00 - 19:00 WIB',
-    },
-    {
-      city: 'Samarinda Heritage Flagship',
-      address: 'Jl. Gajah Mada No. 12, Samarinda, Kalimantan Timur',
-      phone: '+62 541 789 203',
-      email: 'samarinda@batikzahro.com',
-      hours: 'Mon - Sun: 09:00 - 20:00 WITA',
-    },
-    {
-      city: 'Tokyo Showroom',
-      address: 'Ginza 5-Chome 9-1, Chuo-ku, Tokyo 104-0061',
-      phone: '+81 3 4567 8901',
-      email: 'tokyo@batikzahro.com',
-      hours: 'Tue - Sun: 11:00 - 19:00 JST',
-    },
-  ];
 
   return (
     <>
@@ -44,88 +23,184 @@ export default function ContactPage() {
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
           <ScrollReveal>
             <span className="font-label text-xs uppercase tracking-[0.35em] text-primary font-bold block mb-4">
-              {t.contact.badge}
+              {language === 'ID' ? 'KONSJERGE & KONTAC' : 'CONCIERGE & CONTACT'}
             </span>
             <h1 className="font-headline text-display-lg text-4xl sm:text-6xl md:text-7xl text-on-surface mb-6">
-              {t.contact.title}
+              {language === 'ID' ? 'Hubungi Kami' : 'Contact Us'}
             </h1>
             <p className="font-body text-body-lg text-lg text-body-text max-w-2xl mx-auto leading-relaxed">
-              {t.contact.subtitle}
+              {language === 'ID' 
+                ? 'Kami siap melayani pesanan kustom bespoke, kemitraan wholesale internasional, dan janji temu privat.' 
+                : 'We welcome inquiries for custom artisan commissions, international wholesale, and private appointments.'}
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* FORM & ATELIER INFO */}
+      {/* MAIN CONTENT SECTION */}
       <section className="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Form Side */}
-          <ScrollReveal className="lg:col-span-7 bg-white p-8 md:p-14 rounded-2xl border border-border-muted luxury-shadow">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* LEFT COLUMN: CONTACT CHANNELS & MAPS */}
+          <div className="lg:col-span-5 space-y-8">
+            <ScrollReveal className="space-y-6">
+              <h2 className="font-headline text-3xl text-on-surface">
+                {language === 'ID' ? 'Saluran Kontak Direct' : 'Direct Contact Channels'}
+              </h2>
+              <p className="font-body text-body-sm text-body-text">
+                {language === 'ID'
+                  ? 'Pilih metode komunikasi yang paling nyaman bagi Anda. Tim kami akan merespons sesegera mungkin.'
+                  : 'Choose the communication method that suits you best. Our team will respond as soon as possible.'}
+              </p>
+
+              {/* ACTION BUTTONS */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* WHATSAPP */}
+                <a
+                  href="https://wa.me/62811550192"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 bg-white hover:bg-primary-container/10 hover:border-primary transition-all duration-300 luxury-shadow group"
+                >
+                  <span className="material-symbols-outlined text-3xl text-emerald-600 group-hover:scale-110 transition-transform">
+                    chat
+                  </span>
+                  <div>
+                    <h4 className="font-title text-sm font-bold text-on-surface">WhatsApp Chat</h4>
+                    <p className="font-body text-xs text-body-text opacity-85">+62 811-550-192</p>
+                  </div>
+                </a>
+
+                {/* EMAIL */}
+                <a
+                  href="mailto:concierge@batikzahro.com"
+                  className="flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 bg-white hover:bg-primary-container/10 hover:border-primary transition-all duration-300 luxury-shadow group"
+                >
+                  <span className="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">
+                    mail
+                  </span>
+                  <div>
+                    <h4 className="font-title text-sm font-bold text-on-surface">Email</h4>
+                    <p className="font-body text-xs text-body-text opacity-85">concierge@batikzahro.com</p>
+                  </div>
+                </a>
+
+                {/* INSTAGRAM */}
+                <a
+                  href="https://instagram.com/batikzahro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 bg-white hover:bg-primary-container/10 hover:border-primary transition-all duration-300 luxury-shadow group sm:col-span-2"
+                >
+                  <span className="material-symbols-outlined text-3xl text-rose-600 group-hover:scale-110 transition-transform">
+                    photo_camera
+                  </span>
+                  <div>
+                    <h4 className="font-title text-sm font-bold text-on-surface">Instagram</h4>
+                    <p className="font-body text-xs text-body-text opacity-85">@batikzahro</p>
+                  </div>
+                </a>
+              </div>
+            </ScrollReveal>
+
+            {/* MAP & OFFICE LOCATION */}
+            <ScrollReveal delay={100} className="space-y-4">
+              <div className="bg-white p-6 rounded-2xl border border-border-muted luxury-shadow space-y-4">
+                <div>
+                  <h3 className="font-title text-xl text-primary font-bold">
+                    {language === 'ID' ? 'Samarinda Heritage Flagship' : 'Samarinda Heritage Flagship'}
+                  </h3>
+                  <p className="font-body text-body-sm text-body-text mt-1 leading-snug">
+                    Jl. Gajah Mada No. 12, Samarinda, Kalimantan Timur
+                  </p>
+                  <p className="font-label text-[11px] text-on-surface-variant/70 mt-1 uppercase tracking-widest font-bold">
+                    {language === 'ID' ? 'Senin - Minggu: 09:00 - 20:00 WITA' : 'Mon - Sun: 09:00 - 20:00 WITA'}
+                  </p>
+                </div>
+                
+                {/* GOOGLE MAPS IFRAME */}
+                <div className="relative w-full h-[280px] rounded-xl overflow-hidden border border-outline-variant/40 bg-surface-tan">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.688849132223!2d117.1420793!3d-0.504285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df67f1b74a1dc1b%3A0xe543ef6ff7b5fa36!2sJl.%20Gajah%20Mada%2C%20Samarinda%2C%20Kalimantan%20Timur!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Batik Zahro Office Location Map"
+                    className="absolute inset-0 w-full h-full"
+                  ></iframe>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* RIGHT COLUMN: DIRECT CONTACT FORM */}
+          <ScrollReveal delay={200} className="lg:col-span-7 bg-white p-8 md:p-12 rounded-2xl border border-border-muted luxury-shadow">
             <h2 className="font-headline text-3xl text-on-surface mb-2">
-              {t.contact.formTitle}
+              {language === 'ID' ? 'Formulir Pertanyaan Direct' : 'Direct Inquiry Form'}
             </h2>
             <p className="font-body text-body-sm text-body-text mb-8">
-              {t.contact.formDesc}
+              {language === 'ID'
+                ? 'Kirim pertanyaan Anda secara langsung ke kurator kami. Kami akan merespons dalam 24 jam.'
+                : 'Send your inquiry directly to our curators. We will respond within 24 hours.'}
             </p>
 
             {submitted ? (
-              <div className="p-8 bg-surface-container rounded-xl text-center border border-primary/20">
-                <span className="material-symbols-outlined text-primary text-5xl mb-4">
+              <div className="p-8 bg-emerald-50 rounded-xl text-center border border-emerald-200">
+                <span className="material-symbols-outlined text-emerald-600 text-5xl mb-4">
                   check_circle
                 </span>
-                <h3 className="font-title text-2xl text-on-surface mb-2">{t.contact.thankTitle}</h3>
+                <h3 className="font-title text-2xl text-on-surface mb-2">
+                  {language === 'ID' ? 'Terima Kasih' : 'Thank You'}
+                </h3>
                 <p className="font-body text-body-sm text-body-text">
-                  {t.contact.thankMsg}
+                  {language === 'ID'
+                    ? 'Pertanyaan Anda telah kami terima. Tim konsjerge kami akan menghubungi Anda segera.'
+                    : 'We have received your message. Our concierge team will connect with you shortly.'}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block font-label text-xs uppercase tracking-widest text-on-surface mb-2 font-bold">
-                      {t.contact.nameLabel}
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      placeholder="e.g. Elena Rostova"
-                      className="w-full px-4 py-3.5 rounded-lg border border-outline-variant/60 focus:border-primary focus:outline-none font-body text-body-sm bg-background-cream/40"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block font-label text-xs uppercase tracking-widest text-on-surface mb-2 font-bold">
-                      {t.contact.emailLabel}
-                    </label>
-                    <input
-                      required
-                      type="email"
-                      placeholder="e.g. elena@boutique.com"
-                      className="w-full px-4 py-3.5 rounded-lg border border-outline-variant/60 focus:border-primary focus:outline-none font-body text-body-sm bg-background-cream/40"
-                    />
-                  </div>
-                </div>
-
                 <div>
                   <label className="block font-label text-xs uppercase tracking-widest text-on-surface mb-2 font-bold">
-                    {t.contact.typeLabel}
+                    {language === 'ID' ? 'Nama Lengkap *' : 'Full Name *'}
                   </label>
-                  <select className="w-full px-4 py-3.5 rounded-lg border border-outline-variant/60 focus:border-primary focus:outline-none font-body text-body-sm bg-background-cream/40">
-                    <option>Bespoke Custom Order</option>
-                    <option>Wholesale & Retail Partner</option>
-                    <option>Press & Editorial Styling</option>
-                    <option>Private Atelier Appointment</option>
-                  </select>
+                  <input
+                    required
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder={language === 'ID' ? 'Contoh: Ahmad Fauzi' : 'e.g. John Doe'}
+                    className="w-full px-4 py-3.5 rounded-lg border border-outline-variant/60 focus:border-primary focus:outline-none font-body text-body-sm bg-background-cream/40"
+                  />
                 </div>
 
                 <div>
                   <label className="block font-label text-xs uppercase tracking-widest text-on-surface mb-2 font-bold">
-                    {t.contact.msgLabel}
+                    {language === 'ID' ? 'Alamat Email *' : 'Email Address *'}
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={language === 'ID' ? 'Contoh: fauzi@email.com' : 'e.g. johndoe@email.com'}
+                    className="w-full px-4 py-3.5 rounded-lg border border-outline-variant/60 focus:border-primary focus:outline-none font-body text-body-sm bg-background-cream/40"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-label text-xs uppercase tracking-widest text-on-surface mb-2 font-bold">
+                    {language === 'ID' ? 'Pertanyaan Anda *' : 'Your Question *'}
                   </label>
                   <textarea
                     required
                     rows={5}
-                    placeholder="Tell us about your project, quantity, or desired motif design..."
+                    value={question}
+                    onChange={(e) => setQuestion(e.target.value)}
+                    placeholder={language === 'ID' ? 'Tuliskan pertanyaan langsung Anda mengenai pesanan, motif, atau kerja sama...' : 'Type your direct question here regarding orders, motifs, or partnership...'}
                     className="w-full px-4 py-3.5 rounded-lg border border-outline-variant/60 focus:border-primary focus:outline-none font-body text-body-sm bg-background-cream/40"
                   ></textarea>
                 </div>
@@ -134,35 +209,10 @@ export default function ContactPage() {
                   type="submit"
                   className="w-full bg-primary text-white py-4 rounded-lg font-label text-xs uppercase tracking-widest font-bold hover:bg-primary-container transition-all luxury-shadow"
                 >
-                  {t.contact.submitBtn}
+                  {language === 'ID' ? 'Kirim Pertanyaan Direct' : 'Submit Direct Inquiry'}
                 </button>
               </form>
             )}
-          </ScrollReveal>
-
-          {/* Boutique Hubs Side */}
-          <ScrollReveal delay={200} className="lg:col-span-5 space-y-6">
-            <div className="bg-surface-tan p-8 rounded-2xl border border-outline-variant/30">
-              <h3 className="font-headline text-2xl text-on-surface mb-4">{t.contact.shippingTitle}</h3>
-              <p className="font-body text-body-sm text-body-text leading-relaxed">
-                {t.contact.shippingDesc}
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-headline text-2xl text-on-surface px-2">{t.contact.hubsTitle}</h3>
-              {hubs.map((hub) => (
-                <div key={hub.city} className="bg-white p-6 rounded-xl border border-border-muted luxury-shadow">
-                  <h4 className="font-title text-xl text-primary mb-2">{hub.city}</h4>
-                  <p className="font-body text-body-sm text-body-text mb-3 leading-snug">{hub.address}</p>
-                  <div className="font-label text-xs text-on-surface-variant space-y-1">
-                    <p>Phone: <span className="font-semibold text-on-surface">{hub.phone}</span></p>
-                    <p>Email: <span className="font-semibold text-on-surface">{hub.email}</span></p>
-                    <p className="opacity-70 mt-2">{hub.hours}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </ScrollReveal>
         </div>
       </section>

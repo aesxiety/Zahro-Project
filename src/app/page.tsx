@@ -59,18 +59,12 @@ export default function HomePage() {
       {/* SECTION 1: HERO VIDEO */}
       <section className="relative min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden -mt-16">
         <div className="absolute inset-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover scale-105"
-          >
-            <source
-              src="https://res.cloudinary.com/vz8eipnq/video/upload/main_hero_video_o2tdga.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <iframe
+            src="https://player.cloudinary.com/embed/?cloud_name=vz8eipnq&public_id=zahro-batik%2Fvideos%2Fhero%2Fsustainable-batik-journey&autoplay=true&loop=true&muted=true&controls=false"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77vh] min-w-full h-[56.25vw] min-h-full border-0 pointer-events-none"
+            allow="autoplay; fullscreen; encrypted-media"
+            title="Batik Journey Hero Video"
+          ></iframe>
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
         </div>
 
@@ -162,19 +156,20 @@ export default function HomePage() {
 
       {/* SECTION 3: BRAND ENTITY */}
       <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
-        <ScrollReveal className="text-center mb-16">
-          <span className="font-label text-primary text-xs uppercase tracking-[0.3em] font-bold mb-4 block">
+        <ScrollReveal className="text-center mb-8">
+          <span className="font-label text-primary text-xs uppercase tracking-[0.3em] font-bold mb-3 block">
             {t.home.brandEntitySubtitle}
           </span>
           <h2 className="font-headline text-headline-xl text-on-surface leading-tight">
             {t.home.brandEntityTitle}
           </h2>
-        </ScrollReveal>        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-stretch">
+        </ScrollReveal>
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 items-stretch">
           {/* GROUP 1: Inovasi Pewarnaan (Card 1 & Text 1) */}
-          <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch bg-white/40 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-outline-variant/30">
+          <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch bg-white/40 backdrop-blur-sm p-5 md:p-6 rounded-xl border border-outline-variant/30">
             {/* Card 1 */}
             <div className="md:col-span-1 flex items-stretch justify-center">
-              <div className="relative w-full h-full min-h-[220px] rounded-xl overflow-hidden luxury-shadow">
+              <div className="relative w-full h-full min-h-[200px] rounded-xl overflow-hidden luxury-shadow">
                 <img
                   className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   alt="Borneo Natural Textile Detail"
@@ -184,12 +179,12 @@ export default function HomePage() {
             </div>
 
             {/* Text 1 */}
-            <div className="md:col-span-2 flex flex-col justify-between pl-0 md:pl-4 py-1">
+            <div className="md:col-span-2 flex flex-col justify-between pl-0 md:pl-3 py-1">
               <div>
-                <h3 className="font-title text-lg md:text-xl text-on-surface mb-3 leading-snug font-bold">
+                <h3 className="font-title text-lg md:text-xl text-on-surface mb-2 leading-snug font-bold">
                   {t.home.brandEntityTitle1}
                 </h3>
-                <p className="font-body text-xs md:text-sm text-body-text/90 leading-relaxed mb-5 text-justify">
+                <p className="font-body text-xs md:text-sm text-body-text/90 leading-relaxed mb-3 text-justify">
                   {t.home.brandEntityDesc1}
                 </p>
               </div>
@@ -203,10 +198,10 @@ export default function HomePage() {
           </ScrollReveal>
 
           {/* GROUP 2: Pemberdayaan Disabilitas (Card 2 & Text 2) */}
-          <ScrollReveal delay={200} className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch bg-white/40 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-outline-variant/30">
+          <ScrollReveal delay={200} className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch bg-white/40 backdrop-blur-sm p-5 md:p-6 rounded-xl border border-outline-variant/30">
             {/* Card 2 */}
             <div className="md:col-span-1 flex items-stretch justify-center">
-              <div className="relative w-full h-full min-h-[220px] rounded-xl overflow-hidden luxury-shadow">
+              <div className="relative w-full h-full min-h-[200px] rounded-xl overflow-hidden luxury-shadow">
                 <img
                   className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   alt="Batik Artisan Crafting"
@@ -216,12 +211,12 @@ export default function HomePage() {
             </div>
 
             {/* Text 2 */}
-            <div className="md:col-span-2 flex flex-col justify-between pl-0 md:pl-4 py-1">
+            <div className="md:col-span-2 flex flex-col justify-between pl-0 md:pl-3 py-1">
               <div>
-                <h3 className="font-title text-lg md:text-xl text-on-surface mb-3 leading-snug font-bold">
+                <h3 className="font-title text-lg md:text-xl text-on-surface mb-2 leading-snug font-bold">
                   {t.home.brandEntityTitle2}
                 </h3>
-                <p className="font-body text-xs md:text-sm text-body-text/90 leading-relaxed mb-5 text-justify">
+                <p className="font-body text-xs md:text-sm text-body-text/90 leading-relaxed mb-3 text-justify">
                   {t.home.brandEntityDesc2}
                 </p>
               </div>
