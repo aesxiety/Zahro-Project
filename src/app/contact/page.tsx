@@ -70,7 +70,7 @@ export default function ContactPage() {
 
                 {/* EMAIL */}
                 <a
-                  href="mailto:concierge@batikzahro.com"
+                  href="mailto:batikzahro@gmail.com"
                   className="flex items-center gap-4 p-4 rounded-xl border border-outline-variant/40 bg-white hover:bg-primary-container/10 hover:border-primary transition-all duration-300 luxury-shadow group"
                 >
                   <span className="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">
@@ -78,7 +78,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <h4 className="font-title text-sm font-bold text-on-surface">Email</h4>
-                    <p className="font-body text-xs text-body-text opacity-85">concierge@batikzahro.com</p>
+                    <p className="font-body text-xs text-body-text opacity-85">batikzahro@gmail.com</p>
                   </div>
                 </a>
 
