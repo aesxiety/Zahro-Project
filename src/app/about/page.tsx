@@ -12,27 +12,27 @@ export default function AboutPage() {
     {
       title: t.about.p1Title,
       desc: t.about.p1Desc,
-      icon: 'palette',
+      icon: 'eco',
     },
     {
       title: t.about.p2Title,
       desc: t.about.p2Desc,
-      icon: 'eco',
+      icon: 'history_edu',
     },
     {
       title: t.about.p3Title,
       desc: t.about.p3Desc,
-      icon: 'recycling',
+      icon: 'lightbulb',
     },
     {
       title: t.about.p4Title,
       desc: t.about.p4Desc,
-      icon: 'front_hand',
+      icon: 'workspace_premium',
     },
     {
       title: t.about.p5Title,
       desc: t.about.p5Desc,
-      icon: 'groups',
+      icon: 'handshake',
     },
   ];
 
@@ -64,36 +64,39 @@ export default function AboutPage() {
       </section>
 
       {/* OUR STORY SECTION */}
-      <section className="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
-          <ScrollReveal>
-            <span className="font-label text-xs uppercase tracking-widest text-primary font-bold mb-4 block">
-              {t.about.since}
-            </span>
-            <h2 className="font-headline text-headline-xl text-on-surface mb-8 leading-tight">
-              {t.about.storyTitle}
-            </h2>
-            <div className="space-y-6 font-body text-body-lg text-body-text leading-relaxed">
-              <p>{t.about.storyP1}</p>
-              <p>{t.about.storyP2}</p>
-              <p>{t.about.storyP3}</p>
-            </div>
-          </ScrollReveal>
+      <section className="py-12 md:py-16 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
 
-          <ScrollReveal delay={200}>
+          <ScrollReveal className="md:col-span-5">
             <div className="relative rounded-xl overflow-hidden shadow-2xl">
               <img
-                className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700"
                 alt="Borneo Open-air Batik Workshop"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDWftdFhrnHrJQ_fAsMils4RHP6S0LlVTzJnt7WdqaAEqLvH8EZhQJcxTpemgsdGLggzk_xucecplaMgO3J_ZjK0BR6iESSF8Dx1BTlf8xUSdk4_HwRiXCQ-NSZ8tnTrvVq8ErcVZc_erkKP0LIGySUn8YZH4j-Il6o5tWsXTdfp_dDPuv8LbCUyWjiF6FUvYSaRm75gSnzwvHcFOG7jJbhkQVTq74TG21ldcbyeWSonvcc63fOGB2z8MfCdBaifusQ4dZAcUgyCw"
               />
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal className="md:col-span-7 space-y-4" delay={200}>
+            <div>
+              <span className="font-label text-xs uppercase tracking-widest text-primary font-bold mb-2 block">
+                {t.about.since}
+              </span>
+              <h2 className="font-headline text-headline-lg text-on-surface leading-tight">
+                {t.about.storyTitle}
+              </h2>
+            </div>
+            <div className="space-y-4 font-body text-body-sm text-body-text leading-relaxed">
+              <p>{t.about.storyP1}</p>
+              <p>{t.about.storyP2}</p>
+              <p>{t.about.storyP3}</p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* PHILOSOPHY SECTION */}
-      <section className="py-section-gap bg-surface-tan/40 batik-pattern-overlay border-y border-outline-variant/30">
+      {/* <section className="py-section-gap bg-surface-tan/40 batik-pattern-overlay border-y border-outline-variant/30">
         <div className="max-w-3xl mx-auto px-margin-mobile text-center">
           <ScrollReveal>
             <span className="font-label text-xs uppercase tracking-[0.3em] text-primary font-bold block mb-3">
@@ -115,27 +118,31 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
         </div>
-      </section>
+      </section> */}
 
       {/* VISION & MISSION SECTION */}
-      <section className="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <ScrollReveal className="bg-white p-12 md:p-16 rounded-xl border border-border-muted luxury-shadow">
-            <span className="material-symbols-outlined text-primary text-5xl mb-6">
-              visibility
-            </span>
-            <h3 className="font-headline text-headline-lg text-on-surface mb-4">{t.about.visionTitle}</h3>
-            <p className="font-body text-body-lg text-body-text leading-relaxed">
+      <section className="py-10 md:py-14 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ScrollReveal className="bg-white p-8 md:p-10 rounded-xl border border-border-muted luxury-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="material-symbols-outlined text-primary text-3xl md:text-4xl">
+                visibility
+              </span>
+              <h3 className="font-headline text-headline-lg text-on-surface">{t.about.visionTitle}</h3>
+            </div>
+            <p className="font-body text-body-sm md:text-body-lg text-body-text leading-relaxed">
               {t.about.visionDesc}
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={150} className="bg-white p-12 md:p-16 rounded-xl border border-border-muted luxury-shadow">
-            <span className="material-symbols-outlined text-primary text-5xl mb-6">
-              public
-            </span>
-            <h3 className="font-headline text-headline-lg text-on-surface mb-4">{t.about.missionTitle}</h3>
-            <p className="font-body text-body-lg text-body-text leading-relaxed">
+          <ScrollReveal delay={150} className="bg-white p-8 md:p-10 rounded-xl border border-border-muted luxury-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="material-symbols-outlined text-primary text-3xl md:text-4xl">
+                public
+              </span>
+              <h3 className="font-headline text-headline-lg text-on-surface">{t.about.missionTitle}</h3>
+            </div>
+            <p className="font-body text-body-sm md:text-body-lg text-body-text leading-relaxed">
               {t.about.missionDesc}
             </p>
           </ScrollReveal>
