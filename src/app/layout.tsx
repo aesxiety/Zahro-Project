@@ -45,6 +45,12 @@ export default function RootLayout({
         {/* Preconnect for faster Google Fonts loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload Material Symbols stylesheet */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
+        />
         {/* Material Symbols Outlined - Icon Font */}
         <link
           rel="stylesheet"
