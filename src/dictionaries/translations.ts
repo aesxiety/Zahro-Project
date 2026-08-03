@@ -77,7 +77,7 @@ export const translations = {
     about: {
       badge: 'Atelier Warisan Pengrajin',
       title: 'Tentang Zahro',
-      desc: 'Melestarikan warisan budaya Indonesia melalui batik tulis lukis tangan dan kerajinan berkelanjutan. Perjalanan dari jantung Kalimantan ke butik mewah dunia.',
+      desc: 'Melestarikan warisan budaya Indonesia melalui batik tulis dan kerajinan berkelanjutan. Perjalanan dari jantung Kalimantan ke butik mewah dunia.',
       since: 'Sejak 2017',
       storyTitle: 'Warisan Kami: Legasi Benang & Malam',
       storyP1: 'Batik Zahro merupakan UMKM asal Balikpapan, Kalimantan Timur, yang berdiri sejak 2017. Kami melestarikan budaya lokal melalui batik tulis premium dengan motif khas Kalimantan serta pewarna alami dari limbah kayu Bangkirai sebagai identitas karya kami.',
