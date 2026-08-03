@@ -103,7 +103,7 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden -mt-16">
         <div className="absolute inset-0">
           <iframe
-            src="https://player.cloudinary.com/embed/?cloud_name=vz8eipnq&public_id=zahro-batik%2Fvideos%2Fhero%2Fsustainable-batik-journey&autoplay=true&loop=true&muted=true&controls=false"
+            src="https://player.cloudinary.com/embed/?cloud_name=vz8eipnq&public_id=zahro-batik-hero-video&autoplay=true&loop=true&muted=true&controls=false"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77vh] min-w-full h-[56.25vw] min-h-full border-0 pointer-events-none"
             allow="autoplay; fullscreen; encrypted-media"
             title="Batik Journey Hero Video"
