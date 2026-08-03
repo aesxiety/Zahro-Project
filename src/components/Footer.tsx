@@ -89,7 +89,7 @@ export default function Footer() {
           </h5>
           <div className="flex gap-4 mb-6">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/batikzahro?igsh=MTdsd2phd3MydW80aA=="
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all"
@@ -98,11 +98,20 @@ export default function Footer() {
               <span className="material-symbols-outlined text-lg">camera_alt</span>
             </a>
             <a
-              href="mailto:concierge@batikzahro.com"
+              href="mailto:batikzahro@gmail.com"
               className="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all"
               aria-label="Email Us"
             >
               <span className="material-symbols-outlined text-lg">mail</span>
+            </a>
+            <a
+              href="https://wa.me/628125420184"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+              aria-label="WhatsApp"
+            >
+              <span className="material-symbols-outlined text-lg">chat</span>
             </a>
           </div>
           <p className="font-body text-body-sm text-body-text italic">

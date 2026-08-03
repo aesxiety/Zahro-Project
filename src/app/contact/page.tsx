@@ -22,9 +22,6 @@ export default function ContactPage() {
       <section className="bg-surface-tan py-16 md:py-24 border-b border-outline-variant/30">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
           <ScrollReveal>
-            <span className="font-label text-xs uppercase tracking-[0.35em] text-primary font-bold block mb-4">
-              {language === 'ID' ? 'KONSJERGE & KONTAC' : 'CONCIERGE & CONTACT'}
-            </span>
             <h1 className="font-headline text-display-lg text-4xl sm:text-6xl md:text-7xl text-on-surface mb-6">
               {language === 'ID' ? 'Hubungi Kami' : 'Contact Us'}
             </h1>
@@ -108,7 +105,7 @@ export default function ContactPage() {
               <div className="bg-white p-6 rounded-2xl border border-border-muted luxury-shadow space-y-4">
                 <div>
                   <h3 className="font-title text-xl text-primary font-bold">
-                    {language === 'ID' ? 'Samarinda Heritage Flagship' : 'Samarinda Heritage Flagship'}
+                    {language === 'ID' ? 'Lokasi Workshop Kami' : 'Our Workshop Location'}
                   </h3>
                   <p className="font-body text-body-sm text-body-text mt-1 leading-snug">
                     Teritip, Kec. Balikpapan Tim., Kota Balikpapan, Kalimantan Timur 76118
