@@ -324,7 +324,7 @@ export default function OurStoryPage() {
   return (
     <>
       {/* HERO BANNER */}
-      <section className="bg-surface-tan py-20 md:py-28 border-b border-outline-variant/30 relative z-0">
+      <section className="bg-surface-tan pt-20 pb-36 md:pt-28 md:pb-48 border-b border-outline-variant/30 relative z-0">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
           <ScrollReveal>
             <span className="font-label text-xs uppercase tracking-[0.35em] text-primary font-bold block mb-4">
@@ -522,9 +522,6 @@ export default function OurStoryPage() {
                     </div>
                     <h3 className="font-title text-title-md text-on-surface mb-3">{step.title}</h3>
                     <p className="font-body text-body-sm text-body-text leading-relaxed">{step.desc}</p>
-                  </div>
-                  <div className="mt-8 pt-4 border-t border-outline-variant/30 text-xs font-label text-primary font-bold uppercase tracking-wider">
-                    Zero Synthetic Chemicals
                   </div>
                 </ScrollReveal>
               ))}
