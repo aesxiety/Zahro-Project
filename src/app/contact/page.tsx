@@ -29,8 +29,8 @@ export default function ContactPage() {
               {language === 'ID' ? 'Hubungi Kami' : 'Contact Us'}
             </h1>
             <p className="font-body text-body-lg text-lg text-body-text max-w-2xl mx-auto leading-relaxed">
-              {language === 'ID' 
-                ? 'Kami siap melayani pesanan kustom bespoke, kemitraan wholesale internasional, dan janji temu privat.' 
+              {language === 'ID'
+                ? 'Kami siap melayani pesanan kustom bespoke, kemitraan wholesale internasional, dan janji temu privat.'
                 : 'We welcome inquiries for custom artisan commissions, international wholesale, and private appointments.'}
             </p>
           </ScrollReveal>
@@ -40,7 +40,7 @@ export default function ContactPage() {
       {/* MAIN CONTENT SECTION */}
       <section className="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* LEFT COLUMN: CONTACT CHANNELS & MAPS */}
           <div className="lg:col-span-5 space-y-8">
             <ScrollReveal className="space-y-6">
@@ -111,17 +111,17 @@ export default function ContactPage() {
                     {language === 'ID' ? 'Samarinda Heritage Flagship' : 'Samarinda Heritage Flagship'}
                   </h3>
                   <p className="font-body text-body-sm text-body-text mt-1 leading-snug">
-                    Jl. Gajah Mada No. 12, Samarinda, Kalimantan Timur
+                    Teritip, Kec. Balikpapan Tim., Kota Balikpapan, Kalimantan Timur 76118
                   </p>
                   <p className="font-label text-[11px] text-on-surface-variant/70 mt-1 uppercase tracking-widest font-bold">
                     {language === 'ID' ? 'Senin - Minggu: 09:00 - 20:00 WITA' : 'Mon - Sun: 09:00 - 20:00 WITA'}
                   </p>
                 </div>
-                
+
                 {/* GOOGLE MAPS IFRAME */}
                 <div className="relative w-full h-[280px] rounded-xl overflow-hidden border border-outline-variant/40 bg-surface-tan">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.688849132223!2d117.1420793!3d-0.504285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df67f1b74a1dc1b%3A0xe543ef6ff7b5fa36!2sJl.%20Gajah%20Mada%2C%20Samarinda%2C%20Kalimantan%20Timur!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.802115162489!2d116.9996582!3d-1.1578332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df6f100769e867f%3A0xf57a061f3e86880b!2sBatik%20Zahro!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
