@@ -1,301 +1,417 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-import ScrollReveal from '@/components/ScrollReveal';
-import { useLanguage } from '@/context/LanguageContext';
+import {
+  useEffect,
+  useState,
+} from 'react';
+
 
 type Product = {
+
   id: number;
+
   name: string;
+
   slug: string;
+
   image: string;
+
   description: string;
+
   material: string;
 
+  whatsapp_number: string;
+
   motif_name: string;
+
   motif_slug: string;
+
+  motif_story: string;
+
+  motif_meaning:
+    string | null;
+
+  motif_image:
+    string | null;
+
 };
+
 
 type ApiResponse = {
+
   success: boolean;
-  data?: Product[];
-  message?: string;
+
+  data?:
+    Product[];
+
+  message?:
+    string;
+
 };
 
+
 export default function CollectionPage() {
-  const { t } = useLanguage();
 
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const [activeTab, setActiveTab] = useState('ALL');
+  const [
 
-  // Mengambil semua produk dari API
+    products,
+
+    setProducts,
+
+  ] = useState<Product[]>([]);
+
+
+  const [
+
+    loading,
+
+    setLoading,
+
+  ] = useState(true);
+
+
+  const [
+
+    error,
+
+    setError,
+
+  ] = useState<
+    string | null
+  >(null);
+
+
   useEffect(() => {
+
+
     async function getProducts() {
+
+
       try {
-        setLoading(true);
-        setError(null);
 
-        const response = await fetch('/api/products', {
-          cache: 'no-store',
-        });
 
-        const result: ApiResponse = await response.json();
+        const apiUrl =
 
-        if (!response.ok) {
+          process.env
+            .NEXT_PUBLIC_API_URL;
+
+
+        if (
+          !apiUrl
+        ) {
+
           throw new Error(
-            result.message ||
-              `Gagal mengambil data produk. Status: ${response.status}`
+
+            'NEXT_PUBLIC_API_URL belum diatur'
+
           );
+
         }
 
-        if (!result.success || !result.data) {
-          throw new Error(
-            result.message ||
-              'Data produk tidak ditemukan'
+
+        const response =
+
+          await fetch(
+
+            `${apiUrl}/products.php`,
+
+            {
+
+              cache:
+                'no-store',
+
+            }
+
           );
+
+
+        const result:
+
+          ApiResponse =
+
+          await response.json();
+
+
+        if (
+
+          !response.ok
+
+          ||
+
+          !result.success
+
+        ) {
+
+          throw new Error(
+
+            result.message
+
+            ||
+
+            'Gagal mengambil data produk'
+
+          );
+
         }
 
-        setProducts(result.data);
-      } catch (error) {
-        console.error(
-          'Gagal mengambil data produk:',
-          error
+
+        setProducts(
+
+          result.data
+
+          ||
+
+          []
+
         );
+
+
+      } catch (
+
+        error
+
+      ) {
+
+
+        console.error(
+
+          'Gagal mengambil produk:',
+
+          error
+
+        );
+
 
         setError(
+
           error instanceof Error
-            ? error.message
-            : 'Data produk tidak dapat dimuat.'
+
+            ?
+
+            error.message
+
+            :
+
+            'Gagal mengambil produk'
+
         );
+
+
       } finally {
-        setLoading(false);
+
+
+        setLoading(
+
+          false
+
+        );
+
+
       }
+
+
     }
 
+
     getProducts();
+
+
   }, []);
 
-  /*
-   * Filter sementara.
-   * Karena tabel products belum memiliki
-   * kolom category, saat ini hanya ALL
-   * dan MOTIF BATIK.
-   */
-  const categories = [
-    {
-      key: 'ALL',
-      label: t.collection.tabs.ALL,
-    },
-    {
-      key: 'MOTIF',
-      label: 'MOTIF BATIK',
-    },
-  ];
 
-  const filteredProducts =
-    activeTab === 'ALL'
-      ? products
-      : products.filter(
-          (product) =>
-            product.motif_name
-              .trim()
-              .length > 0
-        );
+  if (
+    loading
+  ) {
+
+    return (
+
+      <main className="min-h-screen bg-background-cream font-body">
+
+        <div className="flex min-h-[500px] items-center justify-center">
+
+          Memuat koleksi...
+
+        </div>
+
+      </main>
+
+    );
+
+  }
+
+
+  if (
+    error
+  ) {
+
+    return (
+
+      <main className="min-h-screen bg-background-cream font-body">
+
+        <div className="flex min-h-[500px] flex-col items-center justify-center">
+
+          <p>
+
+            {error}
+
+          </p>
+
+        </div>
+
+      </main>
+
+    );
+
+  }
+
 
   return (
-    <>
-      {/* ================================================= */}
-      {/* HERO COLLECTION */}
-      {/* ================================================= */}
 
-      <section className="border-b border-outline-variant/30 bg-surface-tan py-16 md:py-24">
-        <div className="mx-auto max-w-container-max px-margin-mobile text-center md:px-margin-desktop">
+    <main className="min-h-screen bg-background-cream font-body">
 
-          <ScrollReveal>
-            <span className="mb-4 block font-label text-xs font-bold uppercase tracking-[0.35em] text-primary">
-              {t.collection.badge}
-            </span>
 
-            <h1 className="mb-6 font-headline text-4xl text-on-surface sm:text-6xl md:text-7xl">
-              {t.collection.title}
-            </h1>
+      <section className="mx-auto max-w-[1320px] px-5 py-12 md:px-10 lg:px-16">
 
-            <p className="mx-auto max-w-2xl font-body text-lg leading-8 text-body-text">
-              {t.collection.subtitle}
-            </p>
-          </ScrollReveal>
 
-          {/* FILTER */}
+        <div>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-3 font-label text-xs font-bold tracking-widest md:gap-4">
 
-            {categories.map((category) => (
-              <button
-                key={category.key}
-                type="button"
-                onClick={() =>
-                  setActiveTab(category.key)
-                }
-                className={`rounded-full px-6 py-3 transition-all duration-300 ${
-                  activeTab === category.key
-                    ? 'bg-primary text-on-primary shadow-md'
-                    : 'border border-outline-variant/30 bg-white/60 text-on-surface-variant hover:bg-white hover:text-primary'
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
+          <p className="text-label-caps text-secondary">
 
-          </div>
+            KOLEKSI BATIK
+
+          </p>
+
+
+          <h1 className="mt-4 font-display text-headline-xl text-on-surface">
+
+            Koleksi Batik Zahro
+
+          </h1>
+
+
+          <div className="mt-6 h-[2px] w-16 bg-primary" />
+
+
         </div>
-      </section>
 
-      {/* ================================================= */}
-      {/* DAFTAR PRODUK */}
-      {/* ================================================= */}
 
-      <section className="mx-auto max-w-container-max px-margin-mobile py-section-gap md:px-margin-desktop">
+        <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
 
-        {/* LOADING */}
 
-        {loading && (
-          <div className="py-24 text-center">
+          {
 
-            <p className="font-body text-body-lg text-body-text">
-              Memuat koleksi batik...
-            </p>
+            products.map(
 
-          </div>
-        )}
+              (
+                product
+              ) => (
 
-        {/* ERROR */}
+                <article
 
-        {!loading && error && (
-          <div className="py-24 text-center">
+                  key={
+                    product.id
+                  }
 
-            <p className="font-body text-body-lg text-error">
-              {error}
-            </p>
+                  className="overflow-hidden rounded-xl border border-border-muted bg-surface-container-lowest"
 
-          </div>
-        )}
+                >
 
-        {/* DATA KOSONG */}
 
-        {!loading &&
-          !error &&
-          filteredProducts.length === 0 && (
-            <div className="py-24 text-center">
+                  <div className="relative aspect-[4/5]">
 
-              <p className="font-body text-body-lg text-body-text">
-                Belum ada produk yang tersedia.
-              </p>
 
-            </div>
-          )}
+                    <Image
 
-        {/* GRID PRODUK */}
+                      src={
+                        product.image
+                      }
 
-        {!loading &&
-          !error &&
-          filteredProducts.length > 0 && (
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                      alt={
+                        product.name
+                      }
 
-              {filteredProducts.map(
-                (product, index) => (
-                  <ScrollReveal
-                    key={product.id}
-                    delay={index * 80}
-                  >
-                    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-muted bg-surface-container-lowest shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                      fill
 
-                      {/* FOTO PRODUK */}
+                      unoptimized
 
-                      <div className="relative aspect-[3/4] overflow-hidden bg-surface-tan/30">
+                      className="object-cover"
 
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
+                    />
 
-                        {/* LABEL MOTIF */}
 
-                        <span className="absolute left-4 top-4 rounded-full border border-primary/20 bg-background-cream/90 px-3 py-1 font-label text-[11px] font-bold uppercase tracking-widest text-primary backdrop-blur-md">
+                  </div>
 
-                          {product.motif_name}
 
-                        </span>
+                  <div className="p-6">
 
-                      </div>
 
-                      {/* INFORMASI PRODUK */}
+                    <p className="text-label-caps text-secondary">
 
-                      <div className="flex flex-grow flex-col justify-between p-8 text-center">
+                      {
 
-                        <div>
+                        product.motif_name
 
-                          {/* NAMA PRODUK */}
+                      }
 
-                          <h2 className="mb-3 font-headline text-2xl text-on-surface transition-colors duration-300 group-hover:text-primary">
+                    </p>
 
-                            {product.name}
 
-                          </h2>
+                    <h2 className="mt-3 font-display text-headline-sm">
 
-                          {/* DESKRIPSI */}
+                      {
 
-                          <p className="line-clamp-3 font-body text-body-sm leading-7 text-body-text">
+                        product.name
 
-                            {product.description}
+                      }
 
-                          </p>
+                    </h2>
 
-                        </div>
 
-                        {/* DETAIL BAWAH */}
+                    <p className="mt-4 line-clamp-3">
 
-                        <div className="mt-6 flex items-center justify-between border-t border-outline-variant/30 pt-5">
+                      {
 
-                          {/* BAHAN */}
+                        product.description
 
-                          <span className="font-headline text-lg font-semibold text-primary">
+                      }
 
-                            {product.material}
+                    </p>
 
-                          </span>
 
-                          {/* LANGSUNG KE HALAMAN DETAIL */}
+                <Link
+                  href={`/produk?slug=${product.slug}`}
+                  className="mt-6 inline-flex border border-primary px-5 py-3"
+                >
+                  DETAIL
+                  <span className="ml-2">→</span>
+                </Link>
 
-                          <Link
-                            href={`/produk/${product.slug}`}
-                            className="flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-on-surface transition-colors duration-300 hover:text-primary"
-                          >
-                            DETAIL
 
-                            <span className="text-base">
-                              →
-                            </span>
-                          </Link>
+                  </div>
 
-                        </div>
 
-                      </div>
+                </article>
 
-                    </article>
-                  </ScrollReveal>
-                )
-              )}
+              )
 
-            </div>
-          )}
+            )
+
+          }
+
+
+        </div>
+
 
       </section>
-    </>
+
+
+    </main>
+
   );
+
 }
