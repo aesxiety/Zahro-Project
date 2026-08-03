@@ -1,0 +1,1 @@
+Place your static images, logos, and custom graphics in this folder.
