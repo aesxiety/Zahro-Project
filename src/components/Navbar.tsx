@@ -38,23 +38,27 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
             ? 'bg-background-cream/95 nav-blur luxury-shadow border-b border-outline-variant/30 py-3'
             : 'bg-transparent py-5'
-        }`}
+          }`}
       >
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-16">
           {/* Brand Logo */}
           <Link
             href="/"
-            className={`font-headline tracking-tighter text-3xl italic flex items-center gap-3 group transition-colors duration-300 ${
-              isTransparent ? 'text-white' : 'text-on-surface'
-            }`}
+            className={`font-headline tracking-tighter text-3xl italic flex items-center gap-3 group transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-on-surface'
+              }`}
           >
-            <span className="w-9 h-9 bg-primary rounded-full flex items-center justify-center text-white text-lg not-italic font-semibold shadow-md group-hover:scale-105 transition-transform">
-              Z
-            </span>
+            <img
+              src="/images/logo.png"
+              alt="Zahro Batik"
+              className="h-12 w-auto object-contain group-hover:scale-105 transition-transform"
+              onError={(e) => {
+                // Fallback to text circle if logo is not loaded
+                e.currentTarget.style.display = 'none';
+              }}
+            />
             <span>{t.nav.brand}</span>
           </Link>
 
@@ -66,13 +70,12 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`transition-all duration-300 relative py-1 ${
-                    isActive
+                  className={`transition-all duration-300 relative py-1 ${isActive
                       ? 'text-primary border-b-2 border-primary font-bold'
                       : isTransparent
-                      ? 'text-white/85 hover:text-white'
-                      : 'text-on-surface-variant hover:text-primary'
-                  }`}
+                        ? 'text-white/85 hover:text-white'
+                        : 'text-on-surface-variant hover:text-primary'
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -85,11 +88,10 @@ export default function Navbar() {
             {/* Membership Button */}
             <Link
               href="/membership"
-              className={`hidden md:flex items-center gap-2 font-label text-xs uppercase tracking-widest rounded-full border transition-all duration-300 px-3 py-1.5 font-bold ${
-                isTransparent
+              className={`hidden md:flex items-center gap-2 font-label text-xs uppercase tracking-widest rounded-full border transition-all duration-300 px-3 py-1.5 font-bold ${isTransparent
                   ? 'text-white bg-white/10 border-white/20 hover:bg-white/20'
                   : 'text-on-surface-variant bg-white/50 border-outline-variant/30 hover:text-primary hover:border-primary/50'
-              }`}
+                }`}
             >
               <span className="material-symbols-outlined text-[14px] leading-none">
                 diamond
@@ -100,11 +102,10 @@ export default function Navbar() {
             {/* Language Switcher Button */}
             <button
               onClick={() => setLanguage(language === 'ID' ? 'EN' : 'ID')}
-              className={`hidden sm:flex items-center gap-2 font-label text-xs uppercase tracking-widest rounded-full border transition-all duration-300 px-3 py-1.5 font-bold ${
-                isTransparent
+              className={`hidden sm:flex items-center gap-2 font-label text-xs uppercase tracking-widest rounded-full border transition-all duration-300 px-3 py-1.5 font-bold ${isTransparent
                   ? 'text-white bg-white/10 border-white/20 hover:bg-white/20'
                   : 'text-on-surface-variant bg-white/50 border-outline-variant/30 hover:text-primary hover:border-primary/50'
-              }`}
+                }`}
               title={language === 'ID' ? 'Switch to English' : 'Ubah ke Bahasa Indonesia'}
             >
               <span className="material-symbols-outlined text-[14px] leading-none">
@@ -116,9 +117,8 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`lg:hidden flex items-center justify-center focus:outline-none transition-colors duration-300 ${
-                isTransparent ? 'text-white' : 'text-primary'
-              }`}
+              className={`lg:hidden flex items-center justify-center focus:outline-none transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-primary'
+                }`}
               aria-label="Toggle Menu"
             >
               <span className="material-symbols-outlined text-2xl">
@@ -138,9 +138,8 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`hover:text-primary transition-colors italic ${
-                  pathname === link.href ? 'text-primary font-semibold underline' : ''
-                }`}
+                className={`hover:text-primary transition-colors italic ${pathname === link.href ? 'text-primary font-semibold underline' : ''
+                  }`}
               >
                 {link.name}
               </Link>
