@@ -23,7 +23,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: 'Batik Zahro | Contemporary Borneo Batik with Natural Dyes',
   description:
-    'Menghadirkan batik tulis Kalimantan dengan inovasi pewarna alam dari limbah kayu Bangkirai, memadukan warisan budaya, keberlanjutan, dan desain kontemporer.',
+    'Menghadirkan batik Kalimantan dengan inovasi pewarna alam dari limbah kayu Bangkirai, memadukan warisan budaya, keberlanjutan, dan desain kontemporer.',
   keywords: [
     'Batik Zahro',
     'Borneo Batik',
@@ -32,6 +32,41 @@ export const metadata: Metadata = {
     'Indonesian Luxury Fashion',
     'Sustainable Textiles',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    title: 'Batik Zahro | Contemporary Borneo Batik with Natural Dyes',
+    description:
+      'Menghadirkan batik Kalimantan dengan inovasi pewarna alam dari limbah kayu Bangkirai, memadukan warisan budaya, keberlanjutan, dan desain kontemporer.',
+    url: 'https://batikzahro.com',
+    siteName: 'Batik Zahro',
+    locale: 'id_ID',
+    type: 'website',
+    images: [
+      {
+        url: '/images/logo.png', // Aset gambar yang akan tampil saat di-share
+        width: 1200,
+        height: 630,
+        alt: 'Batik Zahro Borneo Natural Dyes',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Batik Zahro | Contemporary Borneo Batik with Natural Dyes',
+    description:
+      'Menghadirkan batik Kalimantan dengan inovasi pewarna alam dari limbah kayu Bangkirai, memadukan warisan budaya, keberlanjutan, dan desain kontemporer.',
+    images: ['/images/logo.png'],
+  },
 };
 
 export default function RootLayout({
